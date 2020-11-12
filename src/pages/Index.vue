@@ -1,42 +1,35 @@
 <template>
   <q-page class="column q-mx-sm">
-    <div class="row q-gutter-md justify-evenly q-mt-sm q-mb-md">
-      <q-btn class="col" color="primary" :label="$t('language')" />
-      <q-btn class="col" color="secondary" :label="$t('library')" />
-      <q-btn class="col" color="accent" :label="$t('user')" />
-    </div>
-    <div class="row">
-      <div class="column col">
-        <p class="text-h1">Nyria</p>
-        <p class="text-h3">23 October 20XX</p>
-        <p class="text-body1">
-          Nyria is a magical planet in the {solar system} solar system, with a
-          wide variety of creatures.
-        </p>
+    <p class="text-h4">{{ $t('randomArticles') }}</p>
+    <q-scroll-area horizontal class="full-width" style="height: 300px">
+      <div class="q-pa-sm">
+        <div class="row no-wrap">
+          <article-card
+            class="q-ma-sm"
+            style="width: 300px"
+            v-for="i in 25"
+            :key="i"
+          />
+        </div>
       </div>
-      <q-scroll-area
-        visible
-        :style="'height: ' + $q.screen.height + 'px'"
-        class="col"
-      >
-        <block
-          class="q-mb-sm"
-          v-for="i in 10"
-          :key="i"
-          :header="'Announcement #' + i"
-          :content="'Content for announcement #' + i"
-        />
-      </q-scroll-area>
+    </q-scroll-area>
+    <p class="text-h4">{{ $t('categories') }}</p>
+    <div class="q-pa-sm">
+      <div v-for="j in 5" :key="j" class="row">
+        <category-card class="col q-ma-sm" v-for="i in 2" :key="i" />
+      </div>
     </div>
   </q-page>
 </template>
 
 <script>
-import Block from 'components/Block.vue';
+import ArticleCard from 'components/ArticleCard.vue';
+import CategoryCard from 'components/CategoryCard.vue';
 
 export default {
   components: {
-    Block,
+    ArticleCard,
+    CategoryCard,
   },
 };
 </script>

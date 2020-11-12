@@ -4,9 +4,17 @@ const routes: RouteConfig[] = [
   {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
-    children: [
-      { path: '', component: () => import('pages/Index.vue') },
-    ],
+    children: [{ path: '', component: () => import('pages/Index.vue') }],
+  },
+  {
+    path: '/categories',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [{ path: '', component: () => import('pages/Articles.vue') }],
+  },
+  {
+    path: '/profile',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [{ path: '', component: () => import('pages/Profile.vue') }],
   },
 
   // Always leave this as last one,

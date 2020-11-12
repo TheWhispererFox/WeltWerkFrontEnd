@@ -3,7 +3,7 @@ const esModules = ['quasar/lang', 'lodash-es'].join('|');
 /* eslint-env node */
 module.exports = {
   globals: {
-    __DEV__: true
+    __DEV__: true,
   },
   setupFilesAfterEnv: ['<rootDir>/test/jest/jest.setup.ts'],
   // noStackTrace: true,
@@ -18,7 +18,7 @@ module.exports = {
     '<rootDir>/src/**/*.js',
     '<rootDir>/src/**/*.ts',
     '<rootDir>/src/**/*.jsx',
-    '<rootDir>/src/**/*.tsx'
+    '<rootDir>/src/**/*.tsx',
   ],
   coveragePathIgnorePatterns: ['/node_modules/', '.d.ts$'],
   coverageThreshold: {
@@ -27,13 +27,13 @@ module.exports = {
       //  functions: 50,
       //  lines: 50,
       //  statements: 50
-    }
+    },
   },
   testMatch: [
     // Matches tests in any subfolder of 'src' or into 'test/jest/__tests__'
     // Matches all files with extension 'js', 'jsx', 'ts' and 'tsx'
     '<rootDir>/test/jest/__tests__/**/*.(spec|test).+(ts|js)?(x)',
-    '<rootDir>/src/**/*.jest.(spec|test).+(ts|js)?(x)'
+    '<rootDir>/src/**/*.jest.(spec|test).+(ts|js)?(x)',
   ],
   // Extension-less imports of components are resolved to .ts files by TS,
   //  grating correct type-checking in test files.
@@ -53,7 +53,7 @@ module.exports = {
     '^pages/(.*)$': '<rootDir>/src/pages/$1',
     '^assets/(.*)$': '<rootDir>/src/assets/$1',
     '^boot/(.*)$': '<rootDir>/src/boot/$1',
-    '.*css$': '@quasar/quasar-app-extension-testing-unit-jest/stub.css'
+    '.*css$': '@quasar/quasar-app-extension-testing-unit-jest/stub.css',
   },
   transform: {
     // See https://jestjs.io/docs/en/configuration.html#transformignorepatterns-array-string
@@ -65,8 +65,8 @@ module.exports = {
     // https://github.com/tleunen/find-babel-config/issues/33
     '.*\\.vue$': 'vue-jest',
     '.+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$':
-      'jest-transform-stub'
+      'jest-transform-stub',
   },
   transformIgnorePatterns: [`<rootDir>/node_modules/(?!(${esModules}))`],
-  snapshotSerializers: ['<rootDir>/node_modules/jest-serializer-vue']
+  snapshotSerializers: ['<rootDir>/node_modules/jest-serializer-vue'],
 };

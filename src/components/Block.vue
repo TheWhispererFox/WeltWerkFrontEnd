@@ -27,7 +27,7 @@ export default {
       type: String,
       required: true,
     },
-    imgSrc: {
+    coverSrc: {
       type: String,
       required: false,
     },

@@ -3,15 +3,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "esModuleInterop": true,
-    "types": [
-      "jest",
-      "quasar"
-    ]
+    "types": ["jest", "quasar"],
+    "strict": true
   },
-  "exclude": [
-    "test/cypress",
-    "/dist",
-    ".quasar",
-    "node_modules"
-  ]
+  "exclude": ["test/cypress", "/dist", ".quasar", "node_modules"]
 }
