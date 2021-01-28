@@ -11,7 +11,7 @@
 import { defineComponent } from '@vue/composition-api';
 
 export default defineComponent({
-  name: 'CategoryCard'
+  name: 'CategoryCard',
 });
 </script>
 

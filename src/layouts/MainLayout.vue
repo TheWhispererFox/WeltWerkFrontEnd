@@ -11,7 +11,6 @@
         </q-btn>
       </q-toolbar>
     </q-header>
-
     <q-drawer v-model="left" side="left" behavior="mobile" elevated>
       <q-img class="absolute-top" src="~assets/AbstractShapes.jpg">
         <div class="absolute-bottom bg-transparent">
@@ -98,27 +97,28 @@
 }
 </style>
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api';
-import VueI18n from 'vue-i18n';
+import { defineComponent, ComponentRenderProxy } from '@vue/composition-api';
 
 export default defineComponent({
+  name: 'MainLayout',
   mounted() {
-    this.$i18n.locale = this.$q.lang.getLocale();
+    this.$i18n.locale = this.$q.lang.getLocale() ?? 'en-us';
   },
   data() {
+    const castedThis = this as ComponentRenderProxy;
     return {
       left: false,
       miniState: true,
-      lang: this.$i18n.locale as string,
+      lang: castedThis.$i18n.locale,
       langOptions: [
         {
           value: 'en-us',
-          label: this.$t('english') as VueI18n.TranslateResult,
+          label: castedThis.$t('english'),
         },
-        { value: 'de', label: this.$t('german') as VueI18n.TranslateResult },
+        { value: 'de', label: castedThis.$t('german') },
         {
           value: 'ru-ru',
-          label: this.$t('russian') as VueI18n.TranslateResult,
+          label: castedThis.$t('russian'),
         },
       ],
     };
