@@ -25,13 +25,15 @@
 <script>
 import ArticleCard from 'components/ArticleCard.vue';
 import CategoryCard from 'components/CategoryCard.vue';
+import { defineComponent } from '@vue/composition-api';
 
-export default {
+export default defineComponent({
+  name: 'Index',
   components: {
     ArticleCard,
     CategoryCard,
   },
-};
+});
 </script>
 
 <style></style>

@@ -98,9 +98,10 @@
 }
 </style>
 <script lang="ts">
+import { defineComponent } from '@vue/composition-api';
 import VueI18n from 'vue-i18n';
 
-export default {
+export default defineComponent({
   mounted() {
     this.$i18n.locale = this.$q.lang.getLocale();
   },
@@ -127,5 +128,5 @@ export default {
       this.$i18n.locale = lang;
     },
   },
-};
+});
 </script>

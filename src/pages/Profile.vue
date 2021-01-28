@@ -57,14 +57,16 @@
 
 <script lang="ts">
 import ArticleCard from 'components/ArticleCard.vue';
+import { defineComponent } from '@vue/composition-api';
 
-export default {
+export default defineComponent({
+  name: 'Profile',
   data() {
     return {
       components: [ArticleCard],
     };
   },
-};
+});
 </script>
 
 <style lang="stylus">

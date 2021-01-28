@@ -48,14 +48,16 @@
 </template>
 
 <script lang="ts">
+import { defineComponent } from '@vue/composition-api';
 
-export default {
+export default defineComponent({
+  name: 'CharacterProfile',
   computed: {
     layout(): string {
       return this.$q.screen.lt.sm ? 'dense' : 'comfortable';
     },
   },
-};
+});
 </script>
 
 <style lang="stylus">
