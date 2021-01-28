@@ -48,7 +48,7 @@
         <q-btn class="col q-ma-sm">Follow</q-btn>
       </div>
     </q-card>
-    <p class="text-h4 q-ma-md">OCs</p>
+    <p class="text-h4 q-ma-md">Characters</p>
     <q-scroll-area class="full-width q-ma-md" horizontal style="height: 300px">
       <article-card style="width: 300px" v-for="i in 25" :key="i" />
     </q-scroll-area>
