@@ -23,8 +23,8 @@
     </q-scroll-area>
     <p class="text-h4">{{ $t('categories') }}</p>
     <div class="q-pa-sm">
-      <div v-for="j in 5" :key="j" class="row">
-        <category-card class="col q-ma-sm" v-for="i in 2" :key="i" />
+      <div class="row">
+        <category-card class="col-4 col-md-3 q-ma-sm" routeAddress="articles" v-for="i in 20" :key="i" />
       </div>
     </div>
   </q-page>

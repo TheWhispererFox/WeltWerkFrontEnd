@@ -1,6 +1,16 @@
 <template>
 <q-page class="row q-mt-md q-px-md">
-    <div class="col-8">
+    <div class="col-8 q-px-md">
+        <q-card>
+          <q-card-section class="text-h3">
+            Brief
+          </q-card-section>
+          <q-separator inset />
+          <q-card-section class="text-body1">
+            In the world of Dragon, separated from real human world we living now. There are few large Kingdom of Dragons which leaded by powerful King and Queen. There are few Good Kingdom and also Bad Kingdom who love to take over other Kingdom land, killing many people with out mercy and destroying everything. In order to seize the Bad Kingdom, the Good Kingdom forming some bond with each other Kingdoms in Alliance called 'World-Unity'. All Kingdom in the Alliance, letting all dragons in their territory to living peacefully, not only Dragon, but also any other creatures like humans, centaurs, and other mythical creatures. All of them protected by the Alliance, they living peacefully but even the Alliance already made. The Bad ones still speeding their fearful attack. Even the world seem peace, it is actually not that peace.
+          </q-card-section>
+        </q-card>
+
         <q-timeline :layout="layout">
             <q-timeline-entry heading>
                 Lifetime
@@ -64,6 +74,7 @@
         <q-card-section>
           <div class="text-h5">General info</div>
         </q-card-section>
+        <q-separator inset />
         <q-card-section>
           <q-list>
             <q-item>
@@ -98,9 +109,12 @@
             </q-item>
             <q-item>
               <q-item-section>
-                <q-item-label>
+                <q-item-label overline>
                   Nationality
                 </q-item-label>
+                <q-item-section thumbnail>
+                  <img src="~assets/UK_flag.png" />
+                </q-item-section>
               </q-item-section>
             </q-item>
           </q-list>
