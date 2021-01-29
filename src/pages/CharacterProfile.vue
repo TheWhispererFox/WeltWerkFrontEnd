@@ -1,6 +1,6 @@
 <template>
-<q-page class="column">
-    <div class="q-px-lg q-pb-md">
+<q-page class="row q-mt-md q-px-md">
+    <div class="col-8">
         <q-timeline :layout="layout">
             <q-timeline-entry heading>
                 Lifetime
@@ -43,7 +43,70 @@
                 </div>
             </q-timeline-entry>
         </q-timeline>
-</div>
+    </div>
+    <div class="col">
+      <q-card>
+        <q-item>
+          <q-item-section avatar>
+            <q-avatar>
+              <img src="~assets/whisper_ref_pfp.png">
+            </q-avatar>
+          </q-item-section>
+
+          <q-item-section>
+            <q-item-label>The Whisperer</q-item-label>
+            <q-item-label caption>Reference Sheet</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-img class="inset-shadow" src="~assets/whisper_ref.png" />
+      </q-card>
+      <q-card class="q-mt-md">
+        <q-card-section>
+          <div class="text-h5">General info</div>
+        </q-card-section>
+        <q-card-section>
+          <q-list>
+            <q-item>
+              <q-item-section>
+                <q-item-label overline>
+                  Species
+                </q-item-label>
+                <q-item-label>
+                  Western Dragon
+                </q-item-label>
+              </q-item-section>
+            </q-item>
+            <q-item>
+              <q-item-section>
+                <q-item-label overline>
+                  Gender
+                </q-item-label>
+                <q-item-label>
+                  Male
+                </q-item-label>
+              </q-item-section>
+            </q-item>
+            <q-item>
+              <q-item-section>
+                <q-item-label overline>
+                  Subspecies
+                </q-item-label>
+                <q-item-label>
+                  Noctis Alis
+                </q-item-label>
+              </q-item-section>
+            </q-item>
+            <q-item>
+              <q-item-section>
+                <q-item-label>
+                  Nationality
+                </q-item-label>
+              </q-item-section>
+            </q-item>
+          </q-list>
+        </q-card-section>
+      </q-card>
+    </div>
 </q-page>
 </template>
 
@@ -61,31 +124,4 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
-.image-gallery
-  &__image
-    border-radius: 3%/5%
-    width: 150px
-    max-width: 20vw
-    cursor: pointer
-
-    &-full
-      width: 800px
-      max-width: 70vw
-      z-index: 2002
-      pointer-events: none
-
-      &--active
-        pointer-events: all
-  &__blinder
-    opacity: 0
-    z-index: 2000
-    pointer-events: none
-    transition: opacity 0.3s ease-in-out
-
-    &--active
-      opacity: 0.6
-      pointer-events: all
-
-      + div > .image-gallery__image
-        z-index: 2001
 </style>

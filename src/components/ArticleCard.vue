@@ -1,9 +1,10 @@
 <template>
   <router-link :to="routeAddress">
     <q-card>
-      <q-img src="~assets/whisper_ref.png" transition="scale" />
-      <div class="text-subtitle2 text-center">{{ article.title }}</div>
-      <div class="text-subtitle3 text-center">{{ article.subtitle }}</div>
+      <q-img src="~assets/whisper_ref.png" transition="scale">
+        <div class="text-subtitle1 absolute-bottom" >{{ article.title }}</div>
+        <div class="text-subtitle2">{{ article.subtitle }}</div>
+      </q-img>
     </q-card>
   </router-link>
 </template>
