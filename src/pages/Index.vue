@@ -7,6 +7,14 @@
           <article-card
             class="q-ma-sm"
             style="width: 300px"
+            v-for="i in 5"
+            :key="i"
+            :article="{ title: 'TheWhisperer', subtitle: 'Western dragon', category: 'Characters' }"
+            routeAddress="character"
+          />
+          <article-card
+            class="q-ma-sm"
+            style="width: 300px"
             v-for="i in 25"
             :key="i"
           />

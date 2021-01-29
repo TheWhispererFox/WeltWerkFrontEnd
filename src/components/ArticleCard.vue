@@ -2,8 +2,8 @@
   <router-link :to="routeAddress">
     <q-card>
       <q-img src="~assets/whisper_ref.png" transition="scale" />
-      <div class="text-subtitle2 text-center">{{ this.article.title }}</div>
-      <div class="text-subtitle3 text-center">{{ this.article.subtitle }}</div>
+      <div class="text-subtitle2 text-center">{{ article.title }}</div>
+      <div class="text-subtitle3 text-center">{{ article.subtitle }}</div>
     </q-card>
   </router-link>
 </template>
@@ -17,14 +17,26 @@ export default defineComponent({
   props: {
     article:
     {
-      type: Object as PropType<Article>,
+      type: (Object as unknown) as PropType<Article>,
       required: true,
+      default: {
+        title: 'Title',
+        subtitle: 'Subtitle',
+        category: 'Category',
+      },
     },
-    routeAddress: String,
+    routeAddress: {
+      type: String,
+      required: true,
+      default: 'article',
+    },
   },
   data() {
     return {
     };
+  },
+  setup(props) {
+    return { ...props };
   },
 });
 </script>
