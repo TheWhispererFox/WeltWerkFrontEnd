@@ -50,7 +50,11 @@
     </q-card>
     <p class="text-h4 q-ma-md">Characters</p>
     <q-scroll-area class="full-width q-ma-md" horizontal style="height: 300px">
-      <article-card style="width: 300px" v-for="i in 25" :key="i" />
+      <article-card
+      style="width: 300px"
+      routeAddress="character"
+      v-for="i in 25"
+      :key="i" />
     </q-scroll-area>
   </q-page>
 </template>
@@ -63,8 +67,10 @@ export default defineComponent({
   name: 'Profile',
   data() {
     return {
-      components: [ArticleCard],
     };
+  },
+  components: {
+    ArticleCard,
   },
 });
 </script>
