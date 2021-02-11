@@ -53,8 +53,8 @@
         <q-avatar class="col" size="150px">
           <q-img src="~assets/whisper_ref_pfp.png" />
         </q-avatar>
-        <div class="col text-h1">{{ User.Username }}</div>
-        <div class="col text-h2">{{ User.Tagline }}</div>
+        <div class="col text-h3">{{ User.Username }}</div>
+        <div class="col text-h5">{{ User.Tagline }}</div>
       </div>
     </q-img>
     <p class="text-h4 q-ma-md">Characters</p>
