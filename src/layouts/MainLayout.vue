@@ -6,7 +6,7 @@
 
         <q-btn dense flat round @click="left = !left" class="q-ma-sm">
           <q-avatar size="56px">
-            <img src="~assets/whisper_ref_pfp.png" />
+            <img src="~assets/UnAuthUser.png" />
           </q-avatar>
         </q-btn>
       </q-toolbar>

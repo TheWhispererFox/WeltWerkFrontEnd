@@ -3,3 +3,7 @@ export interface Article {
   subtitle: string,
   category: string,
 }
+export interface User {
+  Username: string,
+  Tagline: string,
+}

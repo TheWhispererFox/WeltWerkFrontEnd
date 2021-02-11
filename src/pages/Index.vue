@@ -24,7 +24,11 @@
     <p class="text-h4">{{ $t('categories') }}</p>
     <div class="q-pa-sm">
       <div class="row">
-        <category-card class="col-4 col-md-3 q-ma-sm" routeAddress="articles" v-for="i in 20" :key="i" />
+        <category-card
+        class="col-4 col-md-3 q-ma-sm"
+        routeAddress="articles"
+        v-for="i in 20"
+        :key="i" />
       </div>
     </div>
   </q-page>
