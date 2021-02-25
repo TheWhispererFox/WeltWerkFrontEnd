@@ -10,15 +10,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from '@vue/composition-api';
+import Vue from 'vue';
+import Component from 'vue-class-component';
 import { Article } from 'components/models';
 
-export default defineComponent({
-  name: 'ArticleCard',
+const ArticleCardProps = Vue.extend({
   props: {
-    article:
-    {
-      type: (Object as unknown) as PropType<Article>,
+    article: {
+      type: Article,
       required: true,
       default: {
         title: 'Title',
@@ -31,15 +30,11 @@ export default defineComponent({
       required: true,
       default: 'article',
     },
-  },
-  data() {
-    return {
-    };
-  },
-  setup(props) {
-    return { ...props };
-  },
+  }
 });
+
+@Component
+export default class ArticleCard extends ArticleCardProps {};
 </script>
 
 <style lang="stylus"></style>
