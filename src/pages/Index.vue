@@ -37,15 +37,17 @@
 <script>
 import ArticleCard from 'components/ArticleCard.vue';
 import CategoryCard from 'components/CategoryCard.vue';
-import { defineComponent } from '@vue/composition-api';
+import { Component, Vue, Prop } from 'vue-property-decorator';
 
-export default defineComponent({
-  name: 'Index',
-  components: {
-    ArticleCard,
-    CategoryCard,
+@Component(
+  {
+    components: {
+      ArticleCard,
+      CategoryCard,
+    },
   },
-});
+)
+export default class Index extends Vue {}
 </script>
 
 <style></style>

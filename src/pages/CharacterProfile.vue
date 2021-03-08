@@ -1,5 +1,5 @@
 <template>
-<q-page class="row q-mt-md q-px-md">
+  <q-page class="row q-mt-md q-px-md">
     <div class="col-8 q-px-md">
         <q-card>
           <q-card-section class="text-h3">
@@ -121,20 +121,18 @@
         </q-card-section>
       </q-card>
     </div>
-</q-page>
+  </q-page>
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
-export default defineComponent({
-  name: 'CharacterProfile',
-  computed: {
-    layout(): string {
-      return this.$q.screen.lt.sm ? 'dense' : 'comfortable';
-    },
-  },
-});
+@Component
+export default class CharacterProfile extends Vue {
+  get layout(): string {
+    return this.$q.screen.lt.sm ? 'dense' : 'comfortable';
+  }
+}
 </script>
 
 <style lang="stylus">

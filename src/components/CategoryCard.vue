@@ -8,19 +8,13 @@
   </router-link>
 </template>
 
-<script>
-import { defineComponent } from '@vue/composition-api';
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
-export default defineComponent({
-  name: 'CategoryCard',
-  props: {
-    routeAddress: {
-      type: String,
-      required: true,
-      default: 'articles',
-    },
-  },
-});
+@Component
+export default class CategoryCard extends Vue {
+  @Prop({ type: String, required: true }) routeAddress!: string;
+}
 </script>
 
 <style lang="stylus">

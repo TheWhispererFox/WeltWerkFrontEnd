@@ -20,11 +20,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api';
+import { Prop, Component, Vue } from 'vue-property-decorator';
 
-export default defineComponent({
-  name: 'Articles',
-});
+@Component
+export default class Articles extends Vue {}
 </script>
 
 <style>

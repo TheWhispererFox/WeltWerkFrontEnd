@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/camelcase */
 /*
  * This file runs in a Node context (it's NOT transpiled by Babel), so use only
  * the ES6 features that are supported by your Node version. https://node.green/
@@ -26,7 +27,7 @@ module.exports = configure((ctx) => ({
   // app boot file (/src/boot)
   // --> boot files are part of "main.js"
   // https://quasar.dev/quasar-cli/boot-files
-  boot: ['composition-api', 'i18n', 'axios', 'addressbar-color'],
+  boot: ['i18n', 'axios', 'addressbar-color'],
 
   // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
   css: ['app.styl'],
@@ -69,12 +70,14 @@ module.exports = configure((ctx) => ({
     extendWebpack(cfg) {
       // linting is slow in TS projects, we execute it only for production builds
       if (ctx.prod) {
-        cfg.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /node_modules/,
-        });
+        if (process.env.NODE_ENV === 'production') {
+          cfg.module.rules.push({
+            enforce: 'pre',
+            test: /\.(js|vue)$/,
+            loader: 'eslint-loader',
+            exclude: /node_modules/,
+          });
+        }
       }
     },
   },
@@ -83,7 +86,7 @@ module.exports = configure((ctx) => ({
   devServer: {
     https: false,
     port: 8080,
-    open: true, // opens browser window automatically
+    open: false, // opens browser window automatically
   },
 
   // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-framework

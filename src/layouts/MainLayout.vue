@@ -97,36 +97,44 @@
 }
 </style>
 <script lang="ts">
-import { defineComponent, ComponentRenderProxy } from '@vue/composition-api';
+import Vue from 'vue';
+import Component from 'vue-class-component';
+import { mapGetters } from 'vuex';
+import { User } from 'src/components/models';
 
-export default defineComponent({
-  name: 'MainLayout',
-  mounted() {
-    this.$i18n.locale = this.$q.lang.getLocale() ?? 'en-us';
-  },
-  data() {
-    const castedThis = this as ComponentRenderProxy;
-    return {
-      left: false,
-      miniState: true,
-      lang: castedThis.$i18n.locale,
-      langOptions: [
-        {
-          value: 'en-us',
-          label: castedThis.$t('english'),
-        },
-        { value: 'de', label: castedThis.$t('german') },
-        {
-          value: 'ru-ru',
-          label: castedThis.$t('russian'),
-        },
-      ],
-    };
-  },
+@Component<MainLayout>({
   watch: {
     lang(lang: string) {
       this.$i18n.locale = lang;
     },
   },
-});
+  computed: mapGetters([
+    'user',
+  ]),
+})
+export default class MainLayout extends Vue {
+  mounted() {
+    this.$i18n.locale = this.$q.lang.getLocale() ?? 'en-us';
+  }
+
+  left = false;
+
+  miniState = true;
+
+  lang = this.$i18n.locale;
+
+  langOptions = [
+    {
+      value: 'en-us',
+      label: this.$t('english'),
+    },
+    { value: 'de', label: this.$t('german') },
+    {
+      value: 'ru-ru',
+      label: this.$t('russian'),
+    },
+  ];
+
+  user!: User
+}
 </script>

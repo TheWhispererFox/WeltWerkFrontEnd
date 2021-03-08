@@ -20,5 +20,15 @@
       "scripts",
       "typescript"
     ]
+  },
+  "@quasar/qenv": {
+    "common_root_object": "none",
+    "add_qenv_to_gitignore": true
+  },
+  "@quasar/typescript": {
+    "codeUpdate": true,
+    "componentStyle": "class",
+    "vscode": true,
+    "prettier": true
   }
 }

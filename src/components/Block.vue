@@ -15,27 +15,16 @@
   </q-card>
 </template>
 
-<script>
-import { defineComponent } from '@vue/composition-api';
+<script lang="ts">
+import { Prop, Vue, Component } from 'vue-property-decorator';
 
-export default defineComponent({
-  name: 'Block',
-  props: {
-    header: {
-      type: String,
-      required: true,
-    },
-    content: {
-      type: String,
-      required: true,
-    },
-    coverSrc: {
-      type: String,
-      required: false,
-    },
-  },
-});
+@Component
+export default class Block extends Vue {
+  @Prop({ type: String, required: true }) readonly header!: string;
+  @Prop({ type: String, required: true }) readonly content!: string;
+  @Prop({ type: String, required: true }) readonly coverSrc!: string;
+}
 </script>
 
-<style>
+<style lang="stylus">
 </style>

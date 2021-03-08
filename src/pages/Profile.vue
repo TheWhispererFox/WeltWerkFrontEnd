@@ -14,8 +14,8 @@
         </div>
         <div class="col-8">
           <div class="column q-ma-sm">
-            <div class="col text-h6">{{ Username }}</div>
-            <div class="col">Web Developer</div>
+            <div class="col text-h6">{{ User.Username }}</div>
+            <div class="col">{{ User.Tagline }}</div>
             <div class="col">
               <q-card class="q-px-md">
                 <div class="row">
@@ -70,29 +70,18 @@
 
 <script lang="ts">
 import ArticleCard from 'components/ArticleCard.vue';
-import { User } from 'components/models.ts';
-import { defineComponent, PropType } from '@vue/composition-api';
+import { User } from 'components/models';
+import { Component, Vue, Prop } from 'vue-property-decorator';
 
-export default defineComponent({
-  name: 'Profile',
-  props: {
-    User: {
-      type: (Object as unknown) as PropType<User>,
-      required: true,
-      default: {
-        Username: 'Username',
-        Tagline: 'Web developer',
-      },
-    },
-  },
-  data() {
-    return {
-    };
-  },
-  components: {
-    ArticleCard,
-  },
-});
+@Component({
+  components: { ArticleCard },
+})
+export default class Profile extends Vue {
+    User: User = {
+      Username: 'TheWhisperer',
+      Tagline: 'Web Developer',
+    }
+}
 </script>
 
 <style lang="stylus">

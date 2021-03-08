@@ -1,9 +1,9 @@
 export interface Article {
-  title: string,
-  subtitle: string,
-  category: string,
+  title: string;
+  subtitle: string;
+  category: string;
 }
 export interface User {
-  Username: string,
-  Tagline: string,
+  Username: string;
+  Tagline: string;
 }

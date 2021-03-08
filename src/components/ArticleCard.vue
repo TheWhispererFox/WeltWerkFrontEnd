@@ -10,31 +10,14 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import Component from 'vue-class-component';
-import { Article } from 'components/models';
-
-const ArticleCardProps = Vue.extend({
-  props: {
-    article: {
-      type: Article,
-      required: true,
-      default: {
-        title: 'Title',
-        subtitle: 'Subtitle',
-        category: 'Category',
-      },
-    },
-    routeAddress: {
-      type: String,
-      required: true,
-      default: 'article',
-    },
-  }
-});
+import { Prop, Component, Vue } from 'vue-property-decorator';
+import { Article } from './models';
 
 @Component
-export default class ArticleCard extends ArticleCardProps {};
+export default class ArticleCard extends Vue {
+  @Prop({ type: String, required: true }) readonly routeAddress!: string;
+  @Prop({ type: Object, required: true, default: { title: 'Title', subtitle: 'Subtitle', category: 'Category' }}) article!: Article;
+}
 </script>
 
 <style lang="stylus"></style>

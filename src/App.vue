@@ -4,9 +4,9 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api';
+import Vue from 'vue';
+import Component from 'vue-class-component';
 
-export default defineComponent({
-  name: 'App',
-});
+@Component
+export default class App extends Vue {}
 </script>
