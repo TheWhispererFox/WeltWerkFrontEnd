@@ -6,22 +6,27 @@
 
         <q-btn dense flat round @click="left = !left" class="q-ma-sm">
           <q-avatar size="56px">
-            <img src="~assets/UnAuthUser.png" />
+            <img :src="this.user == null ? unAuthImg : this.user.ProfilePicture" />
           </q-avatar>
         </q-btn>
       </q-toolbar>
     </q-header>
     <q-drawer v-model="left" side="left" behavior="mobile" elevated>
-      <q-img class="absolute-top" src="~assets/AbstractShapes.jpg">
-        <div class="absolute-bottom bg-transparent">
+      <q-img src="~assets/AbstractShapesPurple-01.jpg">
+        <div v-if="this.user != null" class="absolute-bottom bg-transparent">
           <q-avatar size="80px" class="q-mb-sm">
-            <img src="~assets/whisper_ref_pfp.png" />
+            <img :src="this.user == null ? unAuthImg : this.user.ProfilePicture" />
           </q-avatar>
-          <div class="text-weight-bold">TheWhisperer</div>
-          <div>Web developer</div>
+          <div class="text-weight-bold">{{ 'None' }}</div>
+          <div>{{ 'None' }}</div>
+        </div>
+        <div class="bg-transparent absolute-center q-px-md" v-else>
+          <q-btn color="primary" class="col" to="/auth" label="Sign in" />
+          <div class="col text-center text-body1 text-weight-bold">OR</div>
+          <q-btn color="secondary" class="col" to="/" label="Sign up" />
         </div>
       </q-img>
-      <q-list padding class="q-mx-sm" style="margin-top: 200px">
+      <q-list padding class="q-mx-sm">
         <q-item
           to="/"
           class="navbtn q-mb-sm"
@@ -97,21 +102,10 @@
 }
 </style>
 <script lang="ts">
-import Vue from 'vue';
-import Component from 'vue-class-component';
-import { mapGetters } from 'vuex';
-import { User } from 'src/components/models';
+import { Component, Vue } from 'vue-property-decorator';
+import { AccountStore } from 'src/store/AccountModule';
 
-@Component<MainLayout>({
-  watch: {
-    lang(lang: string) {
-      this.$i18n.locale = lang;
-    },
-  },
-  computed: mapGetters([
-    'user',
-  ]),
-})
+@Component
 export default class MainLayout extends Vue {
   mounted() {
     this.$i18n.locale = this.$q.lang.getLocale() ?? 'en-us';
@@ -121,7 +115,20 @@ export default class MainLayout extends Vue {
 
   miniState = true;
 
-  lang = this.$i18n.locale;
+  // eslint-disable-next-line class-methods-use-this
+  get unAuthImg(): string {
+    // eslint-disable-next-line global-require
+    return require('../assets/UnAuthUser.png');
+  }
+
+  get lang() {
+    return this.$i18n.locale;
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  get user() {
+    return AccountStore.user;
+  }
 
   langOptions = [
     {
@@ -134,7 +141,5 @@ export default class MainLayout extends Vue {
       label: this.$t('russian'),
     },
   ];
-
-  user!: User
 }
 </script>

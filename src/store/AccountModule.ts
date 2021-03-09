@@ -11,7 +11,7 @@ import { User } from '../components/models';
   name: 'AccountModule',
 })
 class AccountModule extends VuexModule {
-  user: User = { Username: 'TheWhisperer', Tagline: 'Web developer' }
+  user: User | null = null;
 
   @Mutation
   SET_USER(user: User) {

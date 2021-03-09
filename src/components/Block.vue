@@ -21,7 +21,9 @@ import { Prop, Vue, Component } from 'vue-property-decorator';
 @Component
 export default class Block extends Vue {
   @Prop({ type: String, required: true }) readonly header!: string;
+
   @Prop({ type: String, required: true }) readonly content!: string;
+
   @Prop({ type: String, required: true }) readonly coverSrc!: string;
 }
 </script>

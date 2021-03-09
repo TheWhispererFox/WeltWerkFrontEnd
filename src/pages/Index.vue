@@ -9,7 +9,7 @@
             style="width: 300px"
             v-for="i in 5"
             :key="i"
-            :article="{ title: 'TheWhisperer', subtitle: 'Western dragon', category: 'Characters' }"
+            :article="{ Title: 'TheWhisperer', Subtitle: 'Western dragon', Category: 'Characters' }"
             routeAddress="character"
           />
           <article-card
@@ -37,7 +37,7 @@
 <script>
 import ArticleCard from 'components/ArticleCard.vue';
 import CategoryCard from 'components/CategoryCard.vue';
-import { Component, Vue, Prop } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
 
 @Component(
   {

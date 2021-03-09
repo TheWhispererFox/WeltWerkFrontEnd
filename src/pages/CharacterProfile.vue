@@ -1,60 +1,64 @@
 <template>
-  <q-page class="row q-mt-md q-px-md">
-    <div class="col-8 q-px-md">
+  <q-page class="myBg row q-px-md">
+    <div class="col-12 q-mt-md col-md-8 q-pr-md">
         <q-card>
           <q-card-section class="text-h3">
             Brief
           </q-card-section>
           <q-separator inset />
           <q-card-section class="text-body1">
+            <!-- eslint-disable-next-line max-len -->
             In the world of Dragon, separated from real human world we living now. There are few large Kingdom of Dragons which leaded by powerful King and Queen. There are few Good Kingdom and also Bad Kingdom who love to take over other Kingdom land, killing many people with out mercy and destroying everything. In order to seize the Bad Kingdom, the Good Kingdom forming some bond with each other Kingdoms in Alliance called 'World-Unity'. All Kingdom in the Alliance, letting all dragons in their territory to living peacefully, not only Dragon, but also any other creatures like humans, centaurs, and other mythical creatures. All of them protected by the Alliance, they living peacefully but even the Alliance already made. The Bad ones still speeding their fearful attack. Even the world seem peace, it is actually not that peace.
           </q-card-section>
         </q-card>
+        <q-card class="q-mt-md">
+          <q-card-section>
+            <q-timeline :layout="layout">
+                <q-timeline-entry heading>
+                    Lifetime
+                </q-timeline-entry>
 
-        <q-timeline :layout="layout">
-            <q-timeline-entry heading>
-                Lifetime
-            </q-timeline-entry>
+                <q-timeline-entry color="green" icon="cake">
+                    <template v-slot:title>
+                      Birth
+                    </template>
+                    <template v-slot:subtitle>
+                      February 22, 1986
+                    </template>
 
-            <q-timeline-entry color="green" icon="cake">
-                <template v-slot:title>
-                  Birth
-                </template>
-                <template v-slot:subtitle>
-                  February 22, 1986
-                </template>
+                    <div>
+                      The birth of the character take place in 80s
+                    </div>
+                </q-timeline-entry>
+                <q-timeline-entry>
+                    <template v-slot:title>
+                      Life
+                    </template>
+                    <template v-slot:subtitle>
+                      July 5, 2015
+                    </template>
 
-                <div>
-                  The birth of the character take place in 80s
-                </div>
-            </q-timeline-entry>
-            <q-timeline-entry>
-                <template v-slot:title>
-                  Life
-                </template>
-                <template v-slot:subtitle>
-                  July 5, 2015
-                </template>
+                    <div>
+                      Character just enjoys his life while he can
+                    </div>
+                </q-timeline-entry>
+                <q-timeline-entry color="red" icon="clear">
+                    <template v-slot:title>
+                      Death
+                    </template>
+                    <template v-slot:subtitle>
+                      October 15, 2033
+                    </template>
 
-                <div>
-                  Character just enjoys his life while he can
-                </div>
-            </q-timeline-entry>
-            <q-timeline-entry color="red" icon="clear">
-                <template v-slot:title>
-                  Death
-                </template>
-                <template v-slot:subtitle>
-                  October 15, 2033
-                </template>
-
-                <div>
-                  The Death of the character because of Metro 2033 events
-                </div>
-            </q-timeline-entry>
-        </q-timeline>
+                    <div>
+                      The Death of the character because of Metro 2033 events
+                    </div>
+                </q-timeline-entry>
+            </q-timeline>
+          </q-card-section>
+        </q-card>
     </div>
-    <div class="col">
+    <div class="col-12 q-mt-md col-md-4">
       <q-card>
         <q-item>
           <q-item-section avatar>
@@ -125,7 +129,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
 
 @Component
 export default class CharacterProfile extends Vue {
@@ -135,5 +139,8 @@ export default class CharacterProfile extends Vue {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
+.myBg
+  background-image: url('~assets/purple_and_dreamy_sunrise.jpg')
+  background-attachment fixed
 </style>

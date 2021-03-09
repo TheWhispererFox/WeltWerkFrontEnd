@@ -5,5 +5,5 @@ import { AddressbarColor } from 'quasar';
 import { boot } from 'quasar/wrappers';
 
 export default boot((/* { app, router, Vue ... } */) => {
-  AddressbarColor.set('#1976D2');
+  AddressbarColor.set('#936cec');
 });

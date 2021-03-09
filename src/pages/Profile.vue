@@ -14,8 +14,8 @@
         </div>
         <div class="col-8">
           <div class="column q-ma-sm">
-            <div class="col text-h6">{{ User.Username }}</div>
-            <div class="col">{{ User.Tagline }}</div>
+            <div class="col text-h6">{{ 'None' }}</div>
+            <div class="col">{{ 'None' }}</div>
             <div class="col">
               <q-card class="q-px-md">
                 <div class="row">
@@ -51,10 +51,10 @@
     <q-img class="desktop-only" height="300px" src="~assets/AbstractShapes.jpg">
       <div class="column absolute-center items-center transparent desktop-only">
         <q-avatar class="col" size="150px">
-          <q-img src="~assets/whisper_ref_pfp.png" />
+          <q-img src="whisper_ref_pfp.png" />
         </q-avatar>
-        <div class="col text-h3">{{ User.Username }}</div>
-        <div class="col text-h5">{{ User.Tagline }}</div>
+        <div class="col text-h3">{{ 'None' }}</div>
+        <div class="col text-h5">{{ 'None' }}</div>
       </div>
     </q-img>
     <p class="text-h4 q-ma-md">Characters</p>
@@ -70,17 +70,17 @@
 
 <script lang="ts">
 import ArticleCard from 'components/ArticleCard.vue';
-import { User } from 'components/models';
-import { Component, Vue, Prop } from 'vue-property-decorator';
+import { AccountStore } from 'src/store/AccountModule';
+import { Component, Vue } from 'vue-property-decorator';
 
 @Component({
   components: { ArticleCard },
 })
 export default class Profile extends Vue {
-    User: User = {
-      Username: 'TheWhisperer',
-      Tagline: 'Web Developer',
-    }
+  // eslint-disable-next-line class-methods-use-this
+  get User() {
+    return AccountStore.user;
+  }
 }
 </script>
 
